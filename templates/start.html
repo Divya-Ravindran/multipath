@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+    <head>
+        <title>Multi-path stories Web App</title>
+    </head>
+    <body>
+       	<table>
+            <tr><td>
+                {% if top_left_id %}
+                <a href="/paths/{{ top_left_id }}">{{top_left}}</a>
+                {% else%}
+                <form action="/new_path/{{ current_path_id }}" method="post">
+                    <input type="hidden" name="position" value="top_left">
+                    <input type="text" name="new_sentence"><input type="submit">
+                </form>
+                {% endif %}
+            </td>
+            <td>
+
+            </td>
+            <td>
+                {% if top_right_id %}
+                <a href="/paths/{{ top_right_id }}">{{top_right}}</a>
+                {% else%}
+                <form action="/new_path/{{ current_path_id }}" method="post">
+                    <input type="hidden" name="position" value="top_right">
+                    <input type="text" name="new_sentence"><input type="submit">
+                </form>
+                {% endif %}
+            </td></tr>
+            <tr><td>
+
+            </td>
+            <td>{{ main_line }}</td>
+            <td>
+
+            </td></tr>
+            <tr><td>
+                {% if bottom_left_id %}
+                <a href="/paths/{{ bottom_left_id }}">{{bottom_left}}</a>
+                {% else%}
+                <form action="/new_path/{{ current_path_id }}" method="post">
+                    <input type="hidden" name="position" value="bottom_left">
+                    <input type="text" name="new_sentence"><input type="submit">
+                </form>
+                {% endif %}
+            </td>
+                <td></td>
+                <td>
+                {% if bottom_right_id %}
+                <a href="/paths/{{ bottom_right_id }}">{{bottom_right}}</a>
+                {% else%}
+                <form action="/new_path/{{ current_path_id }}" method="post">
+                    <input type="hidden" name="position" value="bottom_right">
+                    <input type="text" name="new_sentence"><input type="submit">
+                </form>
+                {% endif %}
+                </td></tr>
+	    </table>
+    </body>
+</html>
